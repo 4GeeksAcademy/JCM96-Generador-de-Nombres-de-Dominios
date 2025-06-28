@@ -1,33 +1,20 @@
 import "bootstrap";
 import "./style.css";
 
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 window.onload = function() {
-  //write your code here
- let pronoun = ['the', 'our'];
-let adj = ['great', 'big'];
-let noun = ['jogger', 'racoon'];
+  // Usa 'const' para listas que no cambian. Es más seguro.
+  const pronouns = ['the', 'our'];
+  const adjs = ['great', 'big'];
+  const nouns = ['jogger', 'racoon'];
 
-function generateDomainNames(pronouns, adjs, nouns) {
-  let domainNames = [];
-  for (let i = 0; i < pronouns.length; i++) {
-    for (let j = 0; j < adjs.length; j++) {
-      for (let k = 0; k < nouns.length; k++) {
-        let domain = pronouns[i] + adjs[j] + nouns[k] + '.com';
-        domainNames.push(domain);
-      }
-    }
-  }
-  return domainNames;
-}
-
-let generatedDomains = generateDomainNames(pronoun, adj, noun);
-
-// Imprimir los dominios generados
-for (let i = 0; i < generatedDomains.length; i++) {
-  console.log(generatedDomains[i]);
-}
+  // Usa bucles 'forEach', que son más fáciles de leer.
+  pronouns.forEach(pronoun => {
+    adjs.forEach(adj => {
+      nouns.forEach(noun => {
+        // Usa "template literals" (`) para crear el texto. Es más limpio.
+        const domain = `${pronoun}${adj}${noun}.com`;
+        console.log(domain);
+      });
+    });
+  });
 };
